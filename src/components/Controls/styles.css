@@ -1,0 +1,50 @@
+.actionsContainer {
+  display: flex;
+  align-items: center;
+  background-color: #222;
+  padding: 0.6rem 0;
+}
+
+.inputContainer {
+  display: flex;
+  flex: 1 0 auto;
+  align-items: center;
+}
+
+.input {
+  padding: 0.7rem 0.6rem;
+  flex: 1 0 auto;
+  background-color: #444;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  margin: 0 1rem;
+  font-size: 1rem;
+  color: #eee;
+}
+
+.input::placeholder {
+  color: #898989;
+}
+
+.actionButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.buttonContainer {
+  width: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s ease;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.buttonContainer:active {
+  background-color: #1da0f2;
+}

@@ -1,0 +1,12 @@
+.main {
+  width: 75vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .main {
+    width: 100%;
+  }
+}

@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext, useEffect } from 'react'
+import './App.css'
+import Main from './components/Main/Main'
+import Aside from './components/Aside/Aside'
+import appContext from './context/app/appContext'
+import io from 'socket.io-client'
+import sid from 'shortid'
 
 function App() {
+  const { setName, setMessage } = useContext(appContext)
+
+  useEffect(() => {
+    console.log(process.env.REACT_APP_BACKEND_URL)
+    setName(sid())
+    const socket = io(process.env.REACT_APP_BACKEND_URL)
+    socket.on('newMessage', message => setMessage(message))
+    return () => socket.disconnect()
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Main />
+      <Aside />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
